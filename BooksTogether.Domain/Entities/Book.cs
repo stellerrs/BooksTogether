@@ -56,6 +56,6 @@ public class Book
             genres.ToList().AsReadOnly(),
             isAgeLimited);
 
-        return new Result<Book>();
+        return Result<Book>.Success(book);
     }
 }
