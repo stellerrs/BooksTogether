@@ -14,7 +14,9 @@ public class Book
         Annotation annotation,
         Price price,
         DateOnly? publishDate,
-        bool isAgeLimited)
+        bool isAgeLimited,
+        BookCover cover,
+        Rating rating)
     {
         Id = id;
         Title = title;
@@ -22,6 +24,8 @@ public class Book
         Price = price;
         PublishDate = publishDate;
         IsAgeLimited = isAgeLimited;
+        Cover = cover;
+        Rating = rating;
     }
 
     public Guid Id { get; private set; }
@@ -32,13 +36,17 @@ public class Book
     public DateOnly? PublishDate { get; private set; }
     public IReadOnlyList<Genre> Genres => _genres;
     public bool IsAgeLimited { get; private set; }
+    public Rating Rating { get; private set; }
+    public BookCover Cover { get; private set; }
 
     public static Result<Book> Create(
         Title title,
         Annotation annotation,
         Price price,
-        DateOnly publishDate,
-        bool isAgeLimited)
+        DateOnly? publishDate,
+        bool isAgeLimited,
+        BookCover cover,
+        Rating rating)
     {
         var book = new Book(
             Guid.NewGuid(),
@@ -46,7 +54,9 @@ public class Book
             annotation,
             price,
             publishDate,
-            isAgeLimited);
+            isAgeLimited,
+            cover,
+            rating);
 
         return Result<Book>.Success(book);
     }
