@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BooksTogether.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f996d7b3be3c5e732ee107d147b7c109d7bd9de")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95b74f49152c2cf34152b13b221193eeaed25d03")]
 [assembly: System.Reflection.AssemblyProductAttribute("BooksTogether.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BooksTogether.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

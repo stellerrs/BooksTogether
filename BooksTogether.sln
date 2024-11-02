@@ -14,7 +14,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksTogether.Persistence",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksTogether.API", "BooksTogether.API\BooksTogether.API.csproj", "{2704449D-0452-4115-A23C-F2B6ED639D75}"
 EndProject
+<<<<<<< HEAD
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9BDC44C0-7501-4954-BA5C-613B2996FEB2}"
+=======
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FBACA3E4-8169-4F6D-997B-394BD970EB30}"
+>>>>>>> tests
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
