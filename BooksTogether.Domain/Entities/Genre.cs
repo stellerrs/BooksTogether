@@ -13,9 +13,9 @@ public class Genre
         Name = name;
     }
     
-    public Guid Id { get; private set; }
+    public Guid Id { get; init; }
     public GenreName Name { get; private set; }
-    public IReadOnlyList<Book> Books => _books;
+    public IReadOnlyList<Book> Books => _books.AsReadOnly();
 
     public static Result<Genre> Create(GenreName name)
     {

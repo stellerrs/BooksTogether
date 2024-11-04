@@ -12,7 +12,15 @@ public class User
     private readonly List<Book> _reading = new();
     private readonly List<User> _friends = new();
 
-    public User(Guid id, Username username, Email? email, Phone? phone, Password password, Status? status, UserAvatar avatar)
+    private User(
+        Guid id,
+        Username username,
+        Email? email,
+        Phone? phone,
+        Password password,
+        Status? status,
+        UserAvatar avatar,
+        bool isPrivate)
     {
         Id = id;
         Username = username;
@@ -21,21 +29,27 @@ public class User
         PhoneNumber = phone;
         Status = status;
         Avatar = avatar;
+        IsPrivate = isPrivate;
     }
 
-    public Guid Id { get; set; }
+    #region Properties
+
+    public Guid Id { get; init; }
     public Username Username { get; private set; }
     public Email? Email { get; private set; }
     public Phone? PhoneNumber { get; private set; }
     public Password Password { get; private set; }
-    public IReadOnlyList<Genre> FavoriteGenres => _favoriteGenres;
-    public IReadOnlyList<Book> FavoriteBooks => _favoriteBooks;
-    public IReadOnlyList<Book> PlanToRead => _planToRead;
-    public IReadOnlyList<Book> BooksRead => _booksRead;
-    public IReadOnlyList<Book> Reading => _reading;
-    public IReadOnlyList<User> Friends => _friends;
+    public IReadOnlyList<Genre> FavoriteGenres => _favoriteGenres.AsReadOnly();
+    public IReadOnlyList<Book> FavoriteBooks => _favoriteBooks.AsReadOnly();
+    public IReadOnlyList<Book> PlanToRead => _planToRead.AsReadOnly();
+    public IReadOnlyList<Book> BooksRead => _booksRead.AsReadOnly();
+    public IReadOnlyList<Book> Reading => _reading.AsReadOnly();
+    public IReadOnlyList<User> Friends => _friends.AsReadOnly();
     public Status? Status { get; private set; }
     public UserAvatar Avatar { get; private set; }
+    public bool IsPrivate { get; private set; }
+
+    #endregion
 
     public static Result<User> Create(
         Username username,
@@ -43,9 +57,18 @@ public class User
         Phone? phone,
         Password password,
         Status? status,
-        UserAvatar avatar)
+        UserAvatar avatar,
+        bool isPrivate)
     {
-        var user = new User(Guid.NewGuid(), username, email, phone, password, status, avatar);
+        var user = new User(
+            Guid.NewGuid(),
+            username,
+            email,
+            phone,
+            password,
+            status,
+            avatar,
+            isPrivate);
         
         return Result<User>.Success(user);
     }

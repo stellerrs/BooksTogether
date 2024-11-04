@@ -13,9 +13,9 @@ public class Author
         Fullname = fullname;
     }
     
-    public Guid Id { get; private set; }
+    public Guid Id { get; init; }
     public AuthorFullname Fullname { get; private set; }
-    public IReadOnlyList<Book> Books => _books;
+    public IReadOnlyList<Book> Books => _books.AsReadOnly();
 
     public Result<Author> Create(AuthorFullname fullname)
     {
