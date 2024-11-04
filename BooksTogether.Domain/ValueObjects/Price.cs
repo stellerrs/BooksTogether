@@ -21,7 +21,7 @@ public class Price : ValueObject
     {
         if (value < 0)
             return Result<Price>.Failure(PriceErrors.NegativeValue(value));
-
+        
         return Result<Price>.Success(new Price(value));
     }
 }

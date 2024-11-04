@@ -12,19 +12,21 @@ public class User
     private readonly List<Book> _reading = new();
     private readonly List<User> _friends = new();
 
-    public User(Guid id, Username username, Email email, Password password, Status? status, UserAvatar avatar)
+    public User(Guid id, Username username, Email? email, Phone? phone, Password password, Status? status, UserAvatar avatar)
     {
         Id = id;
         Username = username;
         Email = email;
         Password = password;
+        PhoneNumber = phone;
         Status = status;
         Avatar = avatar;
     }
 
     public Guid Id { get; set; }
     public Username Username { get; private set; }
-    public Email Email { get; private set; }
+    public Email? Email { get; private set; }
+    public Phone? PhoneNumber { get; private set; }
     public Password Password { get; private set; }
     public IReadOnlyList<Genre> FavoriteGenres => _favoriteGenres;
     public IReadOnlyList<Book> FavoriteBooks => _favoriteBooks;
@@ -37,12 +39,13 @@ public class User
 
     public static Result<User> Create(
         Username username,
-        Email email,
+        Email? email,
+        Phone? phone,
         Password password,
         Status? status,
         UserAvatar avatar)
     {
-        var user = new User(Guid.NewGuid(), username, email, password, status, avatar);
+        var user = new User(Guid.NewGuid(), username, email, phone, password, status, avatar);
         
         return Result<User>.Success(user);
     }
