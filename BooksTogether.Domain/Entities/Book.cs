@@ -13,7 +13,7 @@ public class Book
         Title title,
         Annotation annotation,
         Price price,
-        DateOnly? publishDate,
+        PublishDate? publishDate,
         bool isAgeLimited,
         BookCover cover,
         Rating rating)
@@ -32,7 +32,7 @@ public class Book
     public Title Title { get; private set; }
     public Annotation Annotation { get; private set; }
     public Price Price { get; private set; }
-    public DateOnly? PublishDate { get; private set; }
+    public PublishDate? PublishDate { get; private set; }
     public bool IsAgeLimited { get; private set; }
     public Rating Rating { get; private set; }
     public BookCover Cover { get; private set; }
@@ -43,7 +43,7 @@ public class Book
         Title title,
         Annotation annotation,
         Price price,
-        DateOnly? publishDate,
+        PublishDate? publishDate,
         bool isAgeLimited,
         BookCover cover,
         Rating rating)
